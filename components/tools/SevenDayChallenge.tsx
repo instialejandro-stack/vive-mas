@@ -62,9 +62,9 @@ const challengeDays = [
   }
 ];
 
-const storageKey = "vive-mejor-7-day-challenge";
-const reflectionKey = "vive-mejor-7-day-challenge-reflection";
-const commitmentKey = "vive-mejor-7-day-challenge-commitment";
+const storageKey = "vive-mas-7-day-challenge";
+const reflectionKey = "vive-mas-7-day-challenge-reflection";
+const commitmentKey = "vive-mas-7-day-challenge-commitment";
 
 export function SevenDayChallenge() {
   const [done, setDone] = useState<Record<number, boolean>>({});

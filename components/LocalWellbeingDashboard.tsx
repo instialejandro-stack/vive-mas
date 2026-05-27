@@ -24,12 +24,12 @@ type TodayPlan = {
   completed: Record<string, boolean>;
 };
 
-const habitsKey = "vive-mejor-daily-habits";
-const challengeKey = "vive-mejor-7-day-challenge";
-const wellbeingKey = "vive-mejor-wellbeing-tracker";
-const plannerKey = "vive-mejor-weekly-meal-planner";
-const weeklyGoalKey = "vive-mejor-weekly-goal";
-const todayPlanKey = "vive-mejor-today-plan";
+const habitsKey = "vive-mas-daily-habits";
+const challengeKey = "vive-mas-7-day-challenge";
+const wellbeingKey = "vive-mas-wellbeing-tracker";
+const plannerKey = "vive-mas-weekly-meal-planner";
+const weeklyGoalKey = "vive-mas-weekly-goal";
+const todayPlanKey = "vive-mas-today-plan";
 
 const weeklyGoalOptions = [
   { value: "habits", label: "Completar hábitos", unit: "hábitos", href: "/herramientas-gratis#checklist-habitos" },

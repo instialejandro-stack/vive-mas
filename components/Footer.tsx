@@ -50,9 +50,9 @@ function LinkedInIcon() {
 }
 
 const socialLinks = [
-  { Icon: InstagramIcon, label: "Vive Mejor en Instagram" },
-  { Icon: YoutubeIcon, label: "Vive Mejor en YouTube" },
-  { Icon: LinkedInIcon, label: "Vive Mejor en LinkedIn" }
+  { Icon: InstagramIcon, label: "Vive Más en Instagram" },
+  { Icon: YoutubeIcon, label: "Vive Más en YouTube" },
+  { Icon: LinkedInIcon, label: "Vive Más en LinkedIn" }
 ];
 
 export function Footer() {
@@ -64,12 +64,12 @@ export function Footer() {
           <Link
             href="/"
             className="focus-ring inline-flex items-center gap-2.5 rounded-xl"
-            aria-label="Vive Mejor — Inicio"
+            aria-label="Vive Más — Inicio"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-leaf-500 text-sm font-black text-white">
               🌿
             </span>
-            <p className="text-xl font-black tracking-tight">Vive Mejor</p>
+            <p className="text-xl font-black tracking-tight">Vive Más</p>
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-7 text-white/55">
             Contenido cercano y práctico para mejorar tu bienestar con hábitos,
@@ -161,7 +161,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/8 px-6 py-5">
         <div className="page-shell flex flex-col items-center justify-between gap-2 text-center text-xs text-white/35 sm:flex-row">
-          <p>© 2026 Vive Mejor. Todos los derechos reservados.</p>
+          <p>© 2026 Vive Más. Todos los derechos reservados.</p>
           <p>Hecho con 💚 para tu bienestar</p>
         </div>
       </div>

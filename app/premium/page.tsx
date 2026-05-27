@@ -6,7 +6,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 export const metadata: Metadata = {
   title: "Premium",
   description:
-    "Próxima área premium de Vive Mejor con contenido exclusivo, guías descargables y planes avanzados."
+    "Próxima área premium de Vive Más con contenido exclusivo, guías descargables y planes avanzados."
 };
 
 export default function PremiumPage() {
@@ -17,7 +17,7 @@ export default function PremiumPage() {
           <SectionTitle
             eyebrow="Premium"
             title="Un espacio exclusivo, pensado con calma"
-            description="Próximamente Vive Mejor podrá incorporar contenido exclusivo para suscriptores, guías descargables, planes avanzados y recursos personalizados. Todavía no hay pagos, login ni suscripciones reales."
+            description="Próximamente Vive Más podrá incorporar contenido exclusivo para suscriptores, guías descargables, planes avanzados y recursos personalizados. Todavía no hay pagos, login ni suscripciones reales."
           />
         </div>
       </section>

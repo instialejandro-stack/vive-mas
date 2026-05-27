@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
   title: "Newsletter",
-  description: "Newsletter de Vive Mejor con recursos, ideas y retos saludables."
+  description: "Newsletter de Vive Más con recursos, ideas y retos saludables."
 };
 
 export default function NewsletterPage() {

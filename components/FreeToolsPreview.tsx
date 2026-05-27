@@ -12,7 +12,7 @@ export function FreeToolsPreview() {
             align="left"
             eyebrow="Herramientas gratis"
             title="Utilidades sencillas para cuidarte sin pagar"
-            description="Funciones prácticas que viven en tu navegador: sin APIs externas, sin registro y sin coste para ti ni para Vive Mejor."
+            description="Funciones prácticas que viven en tu navegador: sin APIs externas, sin registro y sin coste para ti ni para Vive Más."
           />
           <div className="md:text-right">
             <Button href="/herramientas-gratis" size="lg">

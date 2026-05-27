@@ -16,7 +16,7 @@ export default function MiBienestarPage() {
           <SectionTitle
             eyebrow="Panel local"
             title="Mi bienestar"
-            description="Un resumen privado de lo que haces en Vive Mejor. Todo se guarda en tu navegador, sin registro y sin servicios externos."
+            description="Un resumen privado de lo que haces en Vive Más. Todo se guarda en tu navegador, sin registro y sin servicios externos."
           />
         </div>
       </section>

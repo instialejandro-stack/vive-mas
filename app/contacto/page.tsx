@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
   title: "Contacto",
-  description: "Contacta con Vive Mejor para consultas, colaboraciones o sugerencias."
+  description: "Contacta con Vive Más para consultas, colaboraciones o sugerencias."
 };
 
 const contactInfo = [

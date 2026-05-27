@@ -5,7 +5,7 @@ import { resources } from "@/data/resources";
 
 export const metadata: Metadata = {
   title: "Recursos gratis",
-  description: "Descargas gratuitas y recursos visuales preparados para Vive Mejor."
+  description: "Descargas gratuitas y recursos visuales preparados para Vive Más."
 };
 
 export default function RecursosGratisPage() {

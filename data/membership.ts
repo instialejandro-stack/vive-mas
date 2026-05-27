@@ -19,7 +19,7 @@ export const membershipFeatures: MembershipFeature[] = [
 ];
 
 export const membershipPreview = {
-  title: "Membresía Vive Mejor",
+  title: "Membresía Vive Más",
   description:
     "Un espacio futuro para contenido premium, guías descargables, planes avanzados y recursos exclusivos sin perder el enfoque cercano de la plataforma.",
   status: "Próximamente"

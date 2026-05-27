@@ -5,8 +5,8 @@ import { ToolSection } from "@/components/tools/ToolSection";
 
 const days = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 const meals = ["Desayuno", "Comida", "Cena", "Snack"];
-const storageKey = "vive-mejor-weekly-meal-planner";
-const notesKey = "vive-mejor-weekly-meal-notes";
+const storageKey = "vive-mas-weekly-meal-planner";
+const notesKey = "vive-mas-weekly-meal-notes";
 const legacyDayNames: Record<string, string> = {
   Miércoles: "Miercoles",
   Sábado: "Sabado"

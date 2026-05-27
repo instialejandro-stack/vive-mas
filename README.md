@@ -1,4 +1,4 @@
-# Vive Mejor
+# Vive Más
 
 Primera version de una plataforma de contenido sobre vida saludable, bienestar, alimentacion, ejercicio y habitos sostenibles.
 

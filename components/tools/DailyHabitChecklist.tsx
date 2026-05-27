@@ -79,9 +79,9 @@ const habitGroups = [
 ];
 
 const habits = habitGroups.flatMap((group) => group.habits.map((habit) => ({ ...habit, group: group.title })));
-const storageKey = "vive-mejor-daily-habits";
-const noteKey = "vive-mejor-daily-habits-note";
-const intentionKey = "vive-mejor-daily-habits-intention";
+const storageKey = "vive-mas-daily-habits";
+const noteKey = "vive-mas-daily-habits-note";
+const intentionKey = "vive-mas-daily-habits-intention";
 
 export function DailyHabitChecklist() {
   const [checked, setChecked] = useState<Record<string, boolean>>({});

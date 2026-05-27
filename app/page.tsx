@@ -129,7 +129,7 @@ export default function HomePage() {
           <SectionTitle
             eyebrow="Beneficios"
             title="Una base completa para cuidarte mejor"
-            description="Vive Mejor está pensado para acompañar cambios sencillos, sin promesas imposibles ni lenguaje complicado."
+            description="Vive Más está pensado para acompañar cambios sencillos, sin promesas imposibles ni lenguaje complicado."
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((benefit) => (

@@ -83,12 +83,12 @@ export function Header() {
         <Link
           href="/"
           className="focus-ring group flex items-center gap-2.5 rounded-xl"
-          aria-label="Vive Mejor - Inicio"
+          aria-label="Vive Más - Inicio"
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-leaf-600 text-white text-sm font-black shadow-sm transition group-hover:bg-leaf-700">
             VM
           </span>
-          <span className="text-lg font-black tracking-tight text-ink">Vive Mejor</span>
+          <span className="text-lg font-black tracking-tight text-ink">Vive Más</span>
         </Link>
 
         <nav aria-label="Navegación principal" className="hidden items-center gap-1 xl:flex">

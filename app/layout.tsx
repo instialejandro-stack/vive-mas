@@ -4,17 +4,17 @@ import { Layout } from "@/components/Layout";
 
 export const metadata: Metadata = {
   title: {
-    default: "Vive Mejor | Bienestar y hábitos saludables",
-    template: "%s | Vive Mejor"
+    default: "Vive Más | Bienestar y hábitos saludables",
+    template: "%s | Vive Más"
   },
   description:
     "Ideas, hábitos, menús y planes de entrenamiento para mejorar tu bienestar físico y mental de forma sencilla y sostenible.",
   openGraph: {
-    title: "Vive Mejor",
+    title: "Vive Más",
     description: "Construye una vida más saludable con pequeños pasos diarios.",
     type: "website",
     locale: "es_ES",
-    siteName: "Vive Mejor"
+    siteName: "Vive Más"
   }
 };
 
