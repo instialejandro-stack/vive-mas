@@ -12,8 +12,13 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <>
-      <section className="bg-dots bg-gradient-to-br from-leaf-50 to-cream py-20">
-        <div className="page-shell">
+      <section
+        className="relative overflow-hidden bg-cover bg-center py-20"
+        style={{ backgroundImage: "url('/images/healthy-lifestyle-hero.png')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/55" aria-hidden="true" />
+        <div className="absolute inset-0 bg-leaf-50/30" aria-hidden="true" />
+        <div className="page-shell relative">
           <SectionTitle
             eyebrow="Blog"
             title="Ideas sencillas para cuidarte mejor"
