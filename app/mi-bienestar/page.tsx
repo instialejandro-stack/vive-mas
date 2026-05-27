@@ -11,8 +11,13 @@ export const metadata: Metadata = {
 export default function MiBienestarPage() {
   return (
     <>
-      <section className="bg-dots bg-gradient-to-br from-leaf-50 to-cream py-20">
-        <div className="page-shell">
+      <section
+        className="relative overflow-hidden bg-cover bg-center py-20"
+        style={{ backgroundImage: "url('/images/healthy-lifestyle-hero.png')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/88 to-leaf-50/62" aria-hidden="true" />
+        <div className="absolute inset-0 bg-dots opacity-45" aria-hidden="true" />
+        <div className="page-shell relative">
           <SectionTitle
             eyebrow="Panel local"
             title="Mi bienestar"
