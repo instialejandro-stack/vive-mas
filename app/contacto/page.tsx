@@ -29,7 +29,12 @@ export default function ContactoPage() {
   return (
     <>
       {/* Hero de página */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-leaf-50 to-cream py-20">
+      <div
+        className="relative overflow-hidden bg-cover bg-center py-20"
+        style={{ backgroundImage: "url('/images/healthy-lifestyle-hero.png')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/92 to-white/62" aria-hidden="true" />
+        <div className="absolute inset-0 bg-leaf-50/35" aria-hidden="true" />
         <div
           className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-leaf-100/50 blur-3xl pointer-events-none"
           aria-hidden="true"
