@@ -13,11 +13,11 @@ export default function BlogPage() {
   return (
     <>
       <section
-        className="relative overflow-hidden bg-cover bg-center py-20"
-        style={{ backgroundImage: "url('/images/healthy-lifestyle-hero.png')" }}
+        className="relative overflow-hidden bg-cover bg-center py-24"
+        style={{ backgroundImage: "url('/images/resources/guia-compra-saludable.jpg')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/55" aria-hidden="true" />
-        <div className="absolute inset-0 bg-leaf-50/30" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/86 via-55% to-leaf-900/24" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-b from-leaf-50/40 to-cream/55" aria-hidden="true" />
         <div className="page-shell relative">
           <SectionTitle
             eyebrow="Blog"
