@@ -29,6 +29,7 @@ const exploreGroups = [
     title: "Recursos y planes",
     description: "Materiales, plantillas y futuras rutas guiadas.",
     links: [
+      { href: "/empieza-aqui", label: "Empieza aquí" },
       { href: "/recursos", label: "Recursos" },
       { href: "/plantillas", label: "Plantillas" },
       { href: "/programas", label: "Programas" },

@@ -35,6 +35,7 @@ export const resources: Resource[] = [
     estimatedTime: "5 min",
     level: "Inicial",
     featured: true,
+    downloadUrl: "/downloads/checklist-habitos-diarios.pdf",
     href: "/recursos/gratis/checklist-habitos-diarios",
     relatedToolHref: "/herramientas-gratis#checklist-habitos",
     visual: {
@@ -59,6 +60,7 @@ export const resources: Resource[] = [
     estimatedTime: "8 min",
     level: "Fácil",
     featured: true,
+    downloadUrl: "/downloads/guia-compra-saludable.pdf",
     href: "/recursos/gratis/guia-compra-saludable",
     relatedToolHref: "/herramientas-gratis#lista-compra",
     visual: {
@@ -83,6 +85,7 @@ export const resources: Resource[] = [
     estimatedTime: "7 días",
     level: "Inicial",
     featured: true,
+    downloadUrl: "/downloads/reto-semanal-energia.pdf",
     href: "/recursos/gratis/reto-semanal-energia",
     relatedToolHref: "/herramientas-gratis#reto-7-dias",
     visual: {
@@ -106,6 +109,7 @@ export const resources: Resource[] = [
     tags: ["menú", "semana", "comidas"],
     estimatedTime: "10 min",
     level: "Fácil",
+    downloadUrl: "/downloads/plantilla-menu-semanal.pdf",
     href: "/recursos/gratis/plantilla-menu-semanal",
     relatedToolHref: "/herramientas-gratis#planificador-comidas",
     visual: {
@@ -129,6 +133,7 @@ export const resources: Resource[] = [
     tags: ["entrenamiento", "casa", "inicial"],
     estimatedTime: "12 min",
     level: "Inicial",
+    downloadUrl: "/downloads/rutina-casa-inicial.pdf",
     href: "/recursos/gratis/rutina-casa-inicial",
     relatedToolHref: "/herramientas-gratis#reto-7-dias",
     visual: {
@@ -152,6 +157,7 @@ export const resources: Resource[] = [
     tags: ["compra", "despensa", "básicos"],
     estimatedTime: "6 min",
     level: "Inicial",
+    downloadUrl: "/downloads/lista-compra-basica.pdf",
     href: "/recursos/gratis/lista-compra-basica",
     relatedToolHref: "/herramientas-gratis#lista-compra",
     visual: {

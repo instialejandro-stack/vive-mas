@@ -374,6 +374,23 @@ export function LocalWellbeingDashboard() {
     });
   }, [wellbeing]);
 
+  const weeklySummary = useMemo(() => {
+    const entries = wellbeing.filter((entry) => new Set(lastDays(7)).has(entry.date));
+    const average = entries.length
+      ? entries.reduce((total, entry) => total + averageEntry(entry), 0) / entries.length
+      : 0;
+
+    return {
+      entries: entries.length,
+      average: average ? average.toFixed(1) : "-",
+      plannedMeals,
+      completedActions: todayCompleted,
+      message: entries.length
+        ? "Ya tienes datos para revisar patrones sencillos esta semana."
+        : "Haz tu primer check-in para empezar a construir un resumen semanal."
+    };
+  }, [plannedMeals, todayCompleted, wellbeing]);
+
   const cards = [
     {
       title: "Plan de hoy",
@@ -426,6 +443,35 @@ export function LocalWellbeingDashboard() {
       selectedIds: current.selectedIds.filter((item) => item !== id),
       completed: Object.fromEntries(Object.entries(current.completed).filter(([key]) => key !== id))
     }));
+  }
+
+  function exportWellbeingData() {
+    const data = {
+      exportedAt: new Date().toISOString(),
+      wellbeing,
+      weeklyGoal,
+      todayPlan,
+      planner,
+      habits,
+      challenge
+    };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `vive-mas-bienestar-${dateKey(new Date())}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function resetWellbeingPanel() {
+    const todayKey = `${todayPlanKey}-${dateKey(new Date())}`;
+    window.localStorage.removeItem(wellbeingKey);
+    window.localStorage.removeItem(weeklyGoalKey);
+    window.localStorage.removeItem(todayKey);
+    setWellbeing([]);
+    setWeeklyGoal({ focus: "habits", target: 4 });
+    setTodayPlan({ selectedIds: defaultPlanIds, completed: {} });
   }
 
   return (
@@ -734,6 +780,45 @@ export function LocalWellbeingDashboard() {
                 {label}
               </Link>
             ))}
+          </div>
+        </section>
+
+        <section className="rounded-2xl border border-leaf-100 bg-white p-5 shadow-card">
+          <h2 className="text-2xl font-bold text-ink">Resumen semanal</h2>
+          <p className="mt-2 text-sm leading-6 text-leaf-900/60">{weeklySummary.message}</p>
+          <div className="mt-4 grid grid-cols-2 gap-3">
+            <div className="rounded-2xl bg-mist p-4">
+              <p className="text-xs font-bold uppercase tracking-[0.1em] text-leaf-900/45">Media</p>
+              <p className="mt-2 text-2xl font-black text-leaf-600">{weeklySummary.average}</p>
+            </div>
+            <div className="rounded-2xl bg-mist p-4">
+              <p className="text-xs font-bold uppercase tracking-[0.1em] text-leaf-900/45">Registros</p>
+              <p className="mt-2 text-2xl font-black text-leaf-600">{weeklySummary.entries}/7</p>
+            </div>
+            <div className="rounded-2xl bg-mist p-4">
+              <p className="text-xs font-bold uppercase tracking-[0.1em] text-leaf-900/45">Comidas</p>
+              <p className="mt-2 text-2xl font-black text-leaf-600">{weeklySummary.plannedMeals}</p>
+            </div>
+            <div className="rounded-2xl bg-mist p-4">
+              <p className="text-xs font-bold uppercase tracking-[0.1em] text-leaf-900/45">Hoy</p>
+              <p className="mt-2 text-2xl font-black text-leaf-600">{weeklySummary.completedActions}</p>
+            </div>
+          </div>
+          <div className="mt-4 grid gap-2">
+            <button
+              type="button"
+              onClick={exportWellbeingData}
+              className="focus-ring rounded-full bg-leaf-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-leaf-700"
+            >
+              Exportar datos
+            </button>
+            <button
+              type="button"
+              onClick={resetWellbeingPanel}
+              className="focus-ring rounded-full border border-leaf-200 px-4 py-2 text-sm font-bold text-leaf-900/70 transition hover:bg-leaf-50"
+            >
+              Reiniciar panel
+            </button>
           </div>
         </section>
       </div>
