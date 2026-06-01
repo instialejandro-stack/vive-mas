@@ -66,6 +66,71 @@ export function FreeLibrary({ resources }: { resources: Resource[] }) {
 
   return (
     <div className="grid gap-8">
+      <section className="grid gap-4 lg:grid-cols-3">
+        <article className="surface-card reveal-up p-6">
+          <p className="text-xs font-black uppercase tracking-[0.14em] text-leaf-600">
+            Empieza por aquí
+          </p>
+          <h2 className="mt-4 text-xl font-black text-ink">Primeros hábitos diarios</h2>
+          <p className="mt-3 text-sm leading-7 text-leaf-900/62">
+            Reúne checklist, reto semanal y registro básico para crear continuidad sin complicarte.
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              setCategory("Hábitos");
+              setTag("Todas");
+              setFormat("Todos");
+            }}
+            className="focus-ring mt-5 rounded-full bg-leaf-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-leaf-700"
+          >
+            Ver hábitos
+          </button>
+        </article>
+
+        <article className="surface-card reveal-up p-6">
+          <p className="text-xs font-black uppercase tracking-[0.14em] text-leaf-600">
+            Cocina sencilla
+          </p>
+          <h2 className="mt-4 text-xl font-black text-ink">Compra y menú semanal</h2>
+          <p className="mt-3 text-sm leading-7 text-leaf-900/62">
+            Accede a recursos para preparar comidas, comprar con más claridad y reducir decisiones.
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              setCategory("Alimentación");
+              setTag("Todas");
+              setFormat("Todos");
+            }}
+            className="focus-ring mt-5 rounded-full bg-leaf-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-leaf-700"
+          >
+            Ver alimentación
+          </button>
+        </article>
+
+        <article className="surface-card reveal-up p-6">
+          <p className="text-xs font-black uppercase tracking-[0.14em] text-leaf-600">
+            Orden semanal
+          </p>
+          <h2 className="mt-4 text-xl font-black text-ink">Planifica sin rigidez</h2>
+          <p className="mt-3 text-sm leading-7 text-leaf-900/62">
+            Plantillas y guías pensadas para organizar la semana sin convertirlo en otra tarea pesada.
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              setCategory("Planificación");
+              setTag("Todas");
+              setFormat("Todos");
+            }}
+            className="focus-ring mt-5 rounded-full bg-leaf-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-leaf-700"
+          >
+            Ver planificación
+          </button>
+        </article>
+      </section>
+
       <section className="rounded-3xl border border-leaf-100 bg-white p-5 shadow-card lg:p-6">
         <div className="grid gap-5 xl:grid-cols-[1fr_0.75fr] xl:items-start">
           <div>
@@ -230,6 +295,31 @@ export function FreeLibrary({ resources }: { resources: Resource[] }) {
             </button>
           </div>
         ) : null}
+      </section>
+
+      <section className="rounded-3xl border border-leaf-100 bg-gradient-to-br from-leaf-50 via-white to-cream p-6 shadow-card lg:p-8">
+        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.12em] text-leaf-600">
+              Preparado para crecer
+            </p>
+            <h2 className="mt-2 text-2xl font-black text-ink">Subir nuevos descargables será sencillo</h2>
+          </div>
+          <div className="grid gap-3 md:grid-cols-3">
+            <div className="rounded-2xl bg-white p-4">
+              <p className="font-black text-ink">1. Añadir archivo</p>
+              <p className="mt-2 text-sm leading-6 text-leaf-900/60">Guarda el PDF o recurso en `public/downloads`.</p>
+            </div>
+            <div className="rounded-2xl bg-white p-4">
+              <p className="font-black text-ink">2. Crear ficha</p>
+              <p className="mt-2 text-sm leading-6 text-leaf-900/60">Añade título, imagen, etiquetas y enlace en `data/resources.ts`.</p>
+            </div>
+            <div className="rounded-2xl bg-white p-4">
+              <p className="font-black text-ink">3. Publicar</p>
+              <p className="mt-2 text-sm leading-6 text-leaf-900/60">La biblioteca lo mostrará con filtros y tarjetas automáticamente.</p>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
