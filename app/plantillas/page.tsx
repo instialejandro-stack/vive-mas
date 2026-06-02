@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/Button";
 import { SectionTitle } from "@/components/SectionTitle";
-import { TemplateCard } from "@/components/TemplateCard";
+import { TemplateLibrary } from "@/components/TemplateLibrary";
 import { templates } from "@/data/templates";
 
 export const metadata: Metadata = {
@@ -25,11 +25,7 @@ export default function PlantillasPage() {
 
       <section className="py-16">
         <div className="page-shell">
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {templates.map((template) => (
-              <TemplateCard key={template.id} template={template} />
-            ))}
-          </div>
+          <TemplateLibrary templates={templates} />
 
           <div className="mt-12 rounded-2xl border border-leaf-100 bg-mist p-6 md:flex md:items-center md:justify-between md:gap-8">
             <div>

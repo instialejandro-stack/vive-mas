@@ -39,18 +39,59 @@ function escapePdfText(value) {
 }
 
 function makePdf({ title, lines }) {
+  const checklist = lines.flatMap((line, index) => {
+    const y = 575 - index * 34;
+    return [
+      `72 ${y} 14 14 re S`,
+      "BT",
+      "/F1 12 Tf",
+      `96 ${y + 2} Td`,
+      `(${escapePdfText(line)}) Tj`,
+      "ET"
+    ];
+  });
+
+  const noteLines = [0, 1, 2, 3].map((index) => `72 ${260 - index * 34} 450 0 l S`);
+
   const textLines = [
+    "0.12 0.49 0.33 rg",
+    "0 760 595 82 re f",
+    "0.94 0.98 0.95 rg",
+    "42 675 511 52 re f",
+    "0 0 0 rg",
     "BT",
-    "/F1 24 Tf",
-    "72 760 Td",
+    "/F1 26 Tf",
+    "72 790 Td",
     `(${escapePdfText(title)}) Tj`,
     "/F1 12 Tf",
     "0 -34 Td",
     "(Vive Mas - recurso gratuito) Tj",
-    "0 -30 Td",
-    ...lines.flatMap((line) => [`(${escapePdfText("- " + line)}) Tj`, "0 -22 Td"]),
-    "0 -18 Td",
-    "(Completa este recurso a tu ritmo. Pequenos pasos, mejor que perfeccion.) Tj",
+    "0 -86 Td",
+    "(Como usarlo) Tj",
+    "/F1 10 Tf",
+    "0 -20 Td",
+    "(1. Elige una accion pequena.  2. Marcala cuando la completes.  3. Repite sin buscar perfeccion.) Tj",
+    "ET",
+    "0 0 0 RG",
+    "0.88 0.93 0.89 rg",
+    "54 330 487 285 re f",
+    "0 0 0 rg",
+    "BT",
+    "/F1 16 Tf",
+    "72 630 Td",
+    "(Checklist) Tj",
+    "ET",
+    ...checklist,
+    "BT",
+    "/F1 16 Tf",
+    "72 300 Td",
+    "(Notas) Tj",
+    "ET",
+    ...noteLines,
+    "BT",
+    "/F1 10 Tf",
+    "72 92 Td",
+    "(Pequenos pasos diarios. Sin prisa, sin todo o nada.) Tj",
     "ET"
   ].join("\n");
 

@@ -29,6 +29,7 @@ const challengeKey = "vive-mas-7-day-challenge";
 const wellbeingKey = "vive-mas-wellbeing-tracker";
 const plannerKey = "vive-mas-weekly-meal-planner";
 const weeklyGoalKey = "vive-mas-weekly-goal";
+const extraWeeklyGoalsKey = "vive-mas-extra-weekly-goals";
 const todayPlanKey = "vive-mas-today-plan";
 
 const weeklyGoalOptions = [
@@ -195,6 +196,7 @@ export function LocalWellbeingDashboard() {
     focus: "habits",
     target: 4
   });
+  const [extraWeeklyGoals, setExtraWeeklyGoals] = useState<WeeklyGoal[]>([]);
   const [todayPlan, setTodayPlan] = useState<TodayPlan>({
     selectedIds: defaultPlanIds,
     completed: {}
@@ -218,6 +220,7 @@ export function LocalWellbeingDashboard() {
     setWellbeing(savedWellbeing);
     setPlanner(readJson<MealPlanner>(plannerKey, {}));
     setWeeklyGoal(readJson<WeeklyGoal>(weeklyGoalKey, { focus: "habits", target: 4 }));
+    setExtraWeeklyGoals(readJson<WeeklyGoal[]>(extraWeeklyGoalsKey, []));
     setTodayPlan(normalizePlan(savedPlan));
 
     const todayEntry = savedWellbeing.find((entry) => entry.date === dateKey(new Date()));
@@ -229,6 +232,10 @@ export function LocalWellbeingDashboard() {
   useEffect(() => {
     window.localStorage.setItem(weeklyGoalKey, JSON.stringify(weeklyGoal));
   }, [weeklyGoal]);
+
+  useEffect(() => {
+    window.localStorage.setItem(extraWeeklyGoalsKey, JSON.stringify(extraWeeklyGoals));
+  }, [extraWeeklyGoals]);
 
   useEffect(() => {
     window.localStorage.setItem(`${todayPlanKey}-${dateKey(new Date())}`, JSON.stringify(todayPlan));
@@ -272,6 +279,19 @@ export function LocalWellbeingDashboard() {
     meals: plannedMeals,
     wellbeing: wellbeingDatesThisWeek
   }[weeklyGoal.focus] ?? 0;
+
+  function getGoalProgress(goal: WeeklyGoal) {
+    return {
+      habits: habitCount,
+      challenge: challengeCount,
+      meals: plannedMeals,
+      wellbeing: wellbeingDatesThisWeek
+    }[goal.focus] ?? 0;
+  }
+
+  function getGoalOption(focus: string) {
+    return weeklyGoalOptions.find((option) => option.value === focus) ?? weeklyGoalOptions[0];
+  }
 
   const goalPercent = Math.min(100, Math.round((goalProgress / weeklyGoal.target) * 100));
   const streak = wellbeingStreak(wellbeing);
@@ -450,6 +470,7 @@ export function LocalWellbeingDashboard() {
       exportedAt: new Date().toISOString(),
       wellbeing,
       weeklyGoal,
+      extraWeeklyGoals,
       todayPlan,
       planner,
       habits,
@@ -468,10 +489,29 @@ export function LocalWellbeingDashboard() {
     const todayKey = `${todayPlanKey}-${dateKey(new Date())}`;
     window.localStorage.removeItem(wellbeingKey);
     window.localStorage.removeItem(weeklyGoalKey);
+    window.localStorage.removeItem(extraWeeklyGoalsKey);
     window.localStorage.removeItem(todayKey);
     setWellbeing([]);
     setWeeklyGoal({ focus: "habits", target: 4 });
+    setExtraWeeklyGoals([]);
     setTodayPlan({ selectedIds: defaultPlanIds, completed: {} });
+  }
+
+  function addExtraWeeklyGoal() {
+    setExtraWeeklyGoals((current) => [
+      ...current,
+      { focus: "wellbeing", target: 3 }
+    ].slice(0, 3));
+  }
+
+  function updateExtraWeeklyGoal(index: number, nextGoal: WeeklyGoal) {
+    setExtraWeeklyGoals((current) =>
+      current.map((goal, currentIndex) => currentIndex === index ? nextGoal : goal)
+    );
+  }
+
+  function removeExtraWeeklyGoal(index: number) {
+    setExtraWeeklyGoals((current) => current.filter((_, currentIndex) => currentIndex !== index));
   }
 
   return (
@@ -712,10 +752,21 @@ export function LocalWellbeingDashboard() {
 
       <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr] xl:col-span-4 xl:grid-cols-1">
         <section className="rounded-2xl border border-leaf-100 bg-white p-5 shadow-card">
-          <h2 className="text-2xl font-bold text-ink">Objetivo semanal</h2>
-          <p className="mt-2 leading-7 text-leaf-900/60">
-            Elige un foco sencillo y revisa tu avance.
-          </p>
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h2 className="text-2xl font-bold text-ink">Objetivos semanales</h2>
+              <p className="mt-2 leading-7 text-leaf-900/60">
+                Elige un foco principal y añade objetivos secundarios si quieres.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={addExtraWeeklyGoal}
+              className="focus-ring rounded-full bg-leaf-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-leaf-700"
+            >
+              Añadir
+            </button>
+          </div>
 
           <div className="mt-5 grid gap-3 sm:grid-cols-[1fr_120px] xl:grid-cols-1">
             <select
@@ -761,6 +812,60 @@ export function LocalWellbeingDashboard() {
               />
             </div>
           </div>
+
+          {extraWeeklyGoals.length > 0 ? (
+            <div className="mt-4 grid gap-3">
+              {extraWeeklyGoals.map((goal, index) => {
+                const option = getGoalOption(goal.focus);
+                const progress = getGoalProgress(goal);
+                const percent = Math.min(100, Math.round((progress / goal.target) * 100));
+
+                return (
+                  <div key={`${goal.focus}-${index}`} className="rounded-2xl border border-leaf-100 bg-white p-4">
+                    <div className="grid gap-2 sm:grid-cols-[1fr_90px_auto] xl:grid-cols-1">
+                      <select
+                        value={goal.focus}
+                        onChange={(event) => updateExtraWeeklyGoal(index, { ...goal, focus: event.target.value })}
+                        className="focus-ring min-h-11 rounded-xl border border-leaf-100 bg-mist px-3 text-sm font-semibold"
+                        aria-label="Objetivo secundario"
+                      >
+                        {weeklyGoalOptions.map((item) => (
+                          <option key={item.value} value={item.value}>
+                            {item.label}
+                          </option>
+                        ))}
+                      </select>
+                      <input
+                        type="number"
+                        min="1"
+                        max="28"
+                        value={goal.target}
+                        onChange={(event) => updateExtraWeeklyGoal(index, { ...goal, target: Math.max(1, Number(event.target.value)) })}
+                        className="focus-ring min-h-11 rounded-xl border border-leaf-100 bg-mist px-3 text-sm font-semibold"
+                        aria-label="Meta secundaria"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeExtraWeeklyGoal(index)}
+                        className="focus-ring rounded-xl border border-leaf-200 px-3 py-2 text-sm font-bold text-leaf-900/55 transition hover:bg-leaf-50"
+                      >
+                        Quitar
+                      </button>
+                    </div>
+                    <div className="mt-3 flex items-center justify-between gap-3">
+                      <p className="text-sm font-bold text-ink">
+                        {progress} de {goal.target} {option.unit}
+                      </p>
+                      <p className="text-sm font-black text-leaf-600">{percent}%</p>
+                    </div>
+                    <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-mist">
+                      <div className="h-full rounded-full bg-leaf-600 transition-all duration-700" style={{ width: `${percent}%` }} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : null}
         </section>
 
         <section className="rounded-2xl border border-leaf-100 bg-white p-5 shadow-card">

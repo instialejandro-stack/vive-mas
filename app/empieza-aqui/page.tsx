@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/Button";
+import { SimpleRecommender } from "@/components/SimpleRecommender";
 
 export const metadata: Metadata = {
   title: "Empieza aquí",
@@ -76,6 +77,12 @@ export default function EmpiezaAquiPage() {
       </section>
 
       <section className="py-16">
+        <div className="page-shell">
+          <SimpleRecommender />
+        </div>
+      </section>
+
+      <section className="pb-16">
         <div className="page-shell grid gap-5 md:grid-cols-2">
           {paths.map((path) => (
             <article key={path.title} className="surface-card reveal-up p-6">
