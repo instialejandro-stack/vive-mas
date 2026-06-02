@@ -3,7 +3,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+<< /Type /Pages /Kids [3 0 R 6 0 R] /Count 2 >>
 endobj
 3 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
@@ -99,16 +99,84 @@ BT
 ET
 endstream
 endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 680 >>
+stream
+0.12 0.49 0.33 rg
+0 760 595 82 re f
+0 0 0 rg
+BT
+/F1 24 Tf
+72 790 Td
+(Plan de accion) Tj
+/F1 12 Tf
+0 -34 Td
+(Reto semanal de energia) Tj
+0 -78 Td
+(Elige acciones realistas para esta semana.) Tj
+ET
+0 0 0 RG
+72 620 450 48 re S
+BT
+/F1 10 Tf
+88 650 Td
+(Paso 1) Tj
+ET
+72 550 450 48 re S
+BT
+/F1 10 Tf
+88 580 Td
+(Paso 2) Tj
+ET
+72 480 450 48 re S
+BT
+/F1 10 Tf
+88 510 Td
+(Paso 3) Tj
+ET
+72 410 450 48 re S
+BT
+/F1 10 Tf
+88 440 Td
+(Paso 4) Tj
+ET
+72 340 450 48 re S
+BT
+/F1 10 Tf
+88 370 Td
+(Paso 5) Tj
+ET
+BT
+/F1 16 Tf
+72 240 Td
+(Reflexion final) Tj
+ET
+72 205 450 0 l S
+72 171 450 0 l S
+72 137 450 0 l S
+72 103 450 0 l S
+BT
+/F1 10 Tf
+72 70 Td
+(Que ha funcionado? Que puedes repetir manana?) Tj
+ET
+endstream
+endobj
 xref
-0 6
+0 8
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000115 00000 n 
-0000000241 00000 n 
-0000000311 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000000317 00000 n 
+0000001434 00000 n 
+0000001560 00000 n 
 trailer
-<< /Size 6 /Root 1 0 R >>
+<< /Size 8 /Root 1 0 R >>
 startxref
-1428
+2291
 %%EOF

@@ -105,6 +105,14 @@ function lastDays(count: number) {
   });
 }
 
+function currentMonthDays() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const total = new Date(year, month + 1, 0).getDate();
+  return Array.from({ length: total }, (_, index) => dateKey(new Date(year, month, index + 1)));
+}
+
 function averageEntry(entry: WellbeingEntry) {
   return (entry.energy + entry.sleep + entry.mood + entry.movement) / 4;
 }
@@ -392,6 +400,33 @@ export function LocalWellbeingDashboard() {
         tone: average >= 4 ? "bg-leaf-600" : average >= 2.6 ? "bg-honey-dark" : entry ? "bg-[#d96b52]" : "bg-white"
       };
     });
+  }, [wellbeing]);
+
+  const monthlyCalendar = useMemo(() => {
+    const entriesByDate = new Map(wellbeing.map((entry) => [entry.date, entry]));
+    return currentMonthDays().map((day) => {
+      const entry = entriesByDate.get(day);
+      const average = entry ? averageEntry(entry) : 0;
+      return {
+        date: day,
+        day: day.slice(8),
+        hasEntry: Boolean(entry),
+        tone: average >= 4 ? "bg-leaf-600" : average >= 2.6 ? "bg-honey-dark" : entry ? "bg-[#d96b52]" : "bg-white"
+      };
+    });
+  }, [wellbeing]);
+
+  const monthlySummary = useMemo(() => {
+    const monthDates = new Set(currentMonthDays());
+    const entries = wellbeing.filter((entry) => monthDates.has(entry.date));
+    const average = entries.length
+      ? entries.reduce((total, entry) => total + averageEntry(entry), 0) / entries.length
+      : 0;
+    return {
+      entries: entries.length,
+      average: average ? average.toFixed(1) : "-",
+      totalDays: monthDates.size
+    };
   }, [wellbeing]);
 
   const weeklySummary = useMemo(() => {
@@ -747,6 +782,34 @@ export function LocalWellbeingDashboard() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-leaf-100 bg-white p-6 shadow-card xl:col-span-8">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-ink">Vista mensual</h2>
+            <p className="mt-2 leading-7 text-leaf-900/60">
+              Revisa de un vistazo cuántos días has registrado bienestar este mes.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-mist px-4 py-3 text-sm font-bold text-leaf-900/65">
+            {monthlySummary.entries}/{monthlySummary.totalDays} días · media {monthlySummary.average}
+          </div>
+        </div>
+
+        <div className="mt-6 grid grid-cols-7 gap-2">
+          {monthlyCalendar.map((day) => (
+            <div
+              key={day.date}
+              className={`flex aspect-square min-h-10 items-center justify-center rounded-xl border border-leaf-100 text-xs font-black ${
+                day.tone
+              } ${day.hasEntry ? "text-white" : "text-leaf-900/35"}`}
+              title={day.date}
+            >
+              {Number(day.day)}
+            </div>
+          ))}
         </div>
       </section>
 

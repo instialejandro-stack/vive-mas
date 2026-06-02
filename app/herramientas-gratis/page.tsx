@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { FreeToolCard } from "@/components/FreeToolCard";
+import { FreeToolExplorer } from "@/components/FreeToolExplorer";
 import { SectionTitle } from "@/components/SectionTitle";
 import { DailyHabitChecklist } from "@/components/tools/DailyHabitChecklist";
 import { GroceryListGenerator } from "@/components/tools/GroceryListGenerator";
@@ -54,19 +54,14 @@ export default function HerramientasGratisPage() {
       <section className="py-16">
         <div className="page-shell">
           <div className="mb-12">
-            <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="text-sm font-black uppercase tracking-[0.12em] text-leaf-600">
-                  Accesos rápidos
-                </p>
-                <h2 className="mt-1 text-3xl font-black text-ink">Elige qué quieres usar ahora</h2>
-              </div>
-            </div>
-            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-              {freeTools.map((tool) => (
-                <FreeToolCard key={tool.id} tool={tool} />
-              ))}
-            </div>
+            <FreeToolExplorer tools={freeTools} />
+          </div>
+
+          <div className="mb-5">
+            <p className="text-sm font-black uppercase tracking-[0.12em] text-leaf-600">
+              Zona de uso
+            </p>
+            <h2 className="mt-1 text-3xl font-black text-ink">Herramientas interactivas</h2>
           </div>
 
           <div className="grid gap-6">

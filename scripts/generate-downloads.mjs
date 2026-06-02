@@ -53,7 +53,7 @@ function makePdf({ title, lines }) {
 
   const noteLines = [0, 1, 2, 3].map((index) => `72 ${260 - index * 34} 450 0 l S`);
 
-  const textLines = [
+  const pageOne = [
     "0.12 0.49 0.33 rg",
     "0 760 595 82 re f",
     "0.94 0.98 0.95 rg",
@@ -95,12 +95,55 @@ function makePdf({ title, lines }) {
     "ET"
   ].join("\n");
 
+  const planningRows = [0, 1, 2, 3, 4].flatMap((index) => {
+    const y = 620 - index * 70;
+    return [
+      `72 ${y} 450 48 re S`,
+      "BT",
+      "/F1 10 Tf",
+      `88 ${y + 30} Td`,
+      `(${escapePdfText(`Paso ${index + 1}`)}) Tj`,
+      "ET"
+    ];
+  });
+
+  const pageTwo = [
+    "0.12 0.49 0.33 rg",
+    "0 760 595 82 re f",
+    "0 0 0 rg",
+    "BT",
+    "/F1 24 Tf",
+    "72 790 Td",
+    "(Plan de accion) Tj",
+    "/F1 12 Tf",
+    "0 -34 Td",
+    `(${escapePdfText(title)}) Tj`,
+    "0 -78 Td",
+    "(Elige acciones realistas para esta semana.) Tj",
+    "ET",
+    "0 0 0 RG",
+    ...planningRows,
+    "BT",
+    "/F1 16 Tf",
+    "72 240 Td",
+    "(Reflexion final) Tj",
+    "ET",
+    ...[0, 1, 2, 3].map((index) => `72 ${205 - index * 34} 450 0 l S`),
+    "BT",
+    "/F1 10 Tf",
+    "72 70 Td",
+    "(Que ha funcionado? Que puedes repetir manana?) Tj",
+    "ET"
+  ].join("\n");
+
   const objects = [
     "<< /Type /Catalog /Pages 2 0 R >>",
-    "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+    "<< /Type /Pages /Kids [3 0 R 6 0 R] /Count 2 >>",
     "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>",
     "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
-    `<< /Length ${Buffer.byteLength(textLines)} >>\nstream\n${textLines}\nendstream`
+    `<< /Length ${Buffer.byteLength(pageOne)} >>\nstream\n${pageOne}\nendstream`,
+    "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 7 0 R >>",
+    `<< /Length ${Buffer.byteLength(pageTwo)} >>\nstream\n${pageTwo}\nendstream`
   ];
 
   let pdf = "%PDF-1.4\n";

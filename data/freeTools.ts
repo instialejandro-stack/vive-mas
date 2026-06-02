@@ -5,6 +5,8 @@ export type FreeTool = {
   href: string;
   image: string;
   imageAlt: string;
+  category: "Calculadoras" | "Planificación" | "Hábitos" | "Bienestar";
+  featured?: boolean;
 };
 
 export const freeTools: FreeTool[] = [
@@ -14,7 +16,9 @@ export const freeTools: FreeTool[] = [
     description: "Calcula una referencia diaria sencilla según tu peso y actividad.",
     href: "/herramientas-gratis#calculadora-agua",
     image: "/images/resources/checklist-habitos-diarios.jpg",
-    imageAlt: "Vaso de agua junto a una lista de hábitos"
+    imageAlt: "Vaso de agua junto a una lista de hábitos",
+    category: "Calculadoras",
+    featured: true
   },
   {
     id: "checklist-habitos",
@@ -22,7 +26,9 @@ export const freeTools: FreeTool[] = [
     description: "Marca hábitos básicos de bienestar y reinicia cada día cuando quieras.",
     href: "/herramientas-gratis#checklist-habitos",
     image: "/images/resources/checklist-habitos-diarios.jpg",
-    imageAlt: "Checklist de bienestar sobre un portapapeles"
+    imageAlt: "Checklist de bienestar sobre un portapapeles",
+    category: "Hábitos",
+    featured: true
   },
   {
     id: "harris-benedict",
@@ -30,7 +36,8 @@ export const freeTools: FreeTool[] = [
     description: "Estima metabolismo basal y calorías de mantenimiento de forma orientativa.",
     href: "/herramientas-gratis#harris-benedict",
     image: "/images/resources/guia-compra-saludable.jpg",
-    imageAlt: "Compra saludable con verduras frescas"
+    imageAlt: "Compra saludable con verduras frescas",
+    category: "Calculadoras"
   },
   {
     id: "reto-7-dias",
@@ -38,7 +45,9 @@ export const freeTools: FreeTool[] = [
     description: "Sigue un reto gratuito de pequeñas acciones saludables durante una semana.",
     href: "/herramientas-gratis#reto-7-dias",
     image: "/images/resources/reto-semanal-energia.jpg",
-    imageAlt: "Cuaderno de seguimiento semanal de bienestar"
+    imageAlt: "Cuaderno de seguimiento semanal de bienestar",
+    category: "Hábitos",
+    featured: true
   },
   {
     id: "planificador-comidas",
@@ -46,7 +55,9 @@ export const freeTools: FreeTool[] = [
     description: "Organiza comidas de la semana y guarda el borrador en tu navegador.",
     href: "/herramientas-gratis#planificador-comidas",
     image: "/images/resources/plantilla-menu-semanal.jpg",
-    imageAlt: "Planificador semanal de comidas con ingredientes frescos"
+    imageAlt: "Planificador semanal de comidas con ingredientes frescos",
+    category: "Planificación",
+    featured: true
   },
   {
     id: "registro-bienestar",
@@ -54,7 +65,8 @@ export const freeTools: FreeTool[] = [
     description: "Guarda energía, sueño, ánimo y movimiento de forma local.",
     href: "/herramientas-gratis#registro-bienestar",
     image: "/images/resources/reto-semanal-energia.jpg",
-    imageAlt: "Cuaderno visual para seguimiento de bienestar"
+    imageAlt: "Cuaderno visual para seguimiento de bienestar",
+    category: "Bienestar"
   },
   {
     id: "lista-compra",
@@ -62,6 +74,7 @@ export const freeTools: FreeTool[] = [
     description: "Genera una lista saludable según las categorías que quieras incluir.",
     href: "/herramientas-gratis#lista-compra",
     image: "/images/resources/lista-compra-basica.jpg",
-    imageAlt: "Lista de compra junto a frutas y verduras"
+    imageAlt: "Lista de compra junto a frutas y verduras",
+    category: "Planificación"
   }
 ];

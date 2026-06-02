@@ -11,6 +11,7 @@ import { PremiumTeaser } from "@/components/PremiumTeaser";
 import { ProgramCard } from "@/components/ProgramCard";
 import { ResourceCard } from "@/components/ResourceCard";
 import { SectionTitle } from "@/components/SectionTitle";
+import { SimpleRecommender } from "@/components/SimpleRecommender";
 import { categories } from "@/data/categories";
 import { programs } from "@/data/programs";
 import { resources } from "@/data/resources";
@@ -46,6 +47,13 @@ const findings = [
 ];
 
 const quickActions = [
+  {
+    title: "No sé por dónde empezar",
+    description: "Responde tres preguntas y encuentra una ruta gratuita recomendada.",
+    href: "/empieza-aqui",
+    label: "Empezar aquí",
+    image: "/images/healthy-lifestyle-hero.png"
+  },
   {
     title: "Ver mi progreso",
     description: "Resumen local de hábitos, reto, bienestar y comidas planificadas.",
@@ -91,7 +99,7 @@ export default function HomePage() {
       <section className="-mt-8 pb-16">
         <div className="page-shell">
           <div className="rounded-2xl border border-leaf-100 bg-white p-4 shadow-soft md:p-5">
-            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-5">
+            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
               {quickActions.map((action) => (
                 <Link
                   key={action.href}
@@ -121,6 +129,12 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="page-shell">
+          <SimpleRecommender />
         </div>
       </section>
 
