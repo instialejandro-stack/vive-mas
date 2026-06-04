@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/Button";
+import { OnboardingGuide } from "@/components/OnboardingGuide";
 import { SimpleRecommender } from "@/components/SimpleRecommender";
+import { objectives } from "@/data/objectives";
 
 export const metadata: Metadata = {
   title: "Empieza aquí",
@@ -77,8 +79,40 @@ export default function EmpiezaAquiPage() {
       </section>
 
       <section className="py-16">
-        <div className="page-shell">
+        <div className="page-shell grid gap-8">
+          <OnboardingGuide />
           <SimpleRecommender />
+        </div>
+      </section>
+
+      <section className="pb-16">
+        <div className="page-shell">
+          <div className="mb-6 flex flex-col justify-between gap-3 md:flex-row md:items-end">
+            <div>
+              <p className="eyebrow">Objetivos</p>
+              <h2 className="mt-2 text-3xl font-black text-ink">Rutas completas por necesidad</h2>
+            </div>
+            <Button href="/objetivos/comer-mejor" variant="secondary" size="sm">
+              Ver ejemplo
+            </Button>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {objectives.map((objective) => (
+              <article key={objective.slug} className={`surface-card reveal-up overflow-hidden p-0`}>
+                <div className={`h-2 bg-gradient-to-r ${objective.accent}`} />
+                <div className="p-6">
+                  <h3 className="text-2xl font-black text-ink">{objective.shortTitle}</h3>
+                  <p className="mt-3 leading-7 text-leaf-900/62">{objective.audience}</p>
+                  <Link
+                    href={`/objetivos/${objective.slug}`}
+                    className="focus-ring mt-5 inline-flex rounded-full bg-leaf-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-leaf-700"
+                  >
+                    Ver ruta
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

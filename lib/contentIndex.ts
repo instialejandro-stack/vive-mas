@@ -1,5 +1,6 @@
 import { articles } from "@/data/articles";
 import { freeTools } from "@/data/freeTools";
+import { objectives } from "@/data/objectives";
 import { resources } from "@/data/resources";
 import { templates } from "@/data/templates";
 
@@ -79,5 +80,22 @@ export function getContentIndex(): ContentItem[] {
     }
   ];
 
-  return [...routeItems, ...articleItems, ...resourceItems, ...toolItems, ...templateItems];
+  const objectiveItems = objectives.map((objective) => ({
+    id: `objective-${objective.slug}`,
+    title: objective.title,
+    description: objective.description,
+    href: `/objetivos/${objective.slug}`,
+    type: "Ruta" as const,
+    category: "Objetivos",
+    tags: objective.tags
+  }));
+
+  return [
+    ...routeItems,
+    ...objectiveItems,
+    ...articleItems,
+    ...resourceItems,
+    ...toolItems,
+    ...templateItems
+  ];
 }

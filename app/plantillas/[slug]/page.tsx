@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import { RecentlyViewedTracker } from "@/components/RecentlyViewedTracker";
+import { RelatedNextSteps } from "@/components/RelatedNextSteps";
 import { templates } from "@/data/templates";
 
 type TemplatePageProps = {
@@ -107,6 +108,14 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
               ) : null}
             </div>
           </aside>
+        </div>
+
+        <div className="mt-10">
+          <RelatedNextSteps
+            currentId={`template-${template.slug}`}
+            category={template.category}
+            tags={template.includes.map((item) => item.toLowerCase())}
+          />
         </div>
       </div>
     </article>

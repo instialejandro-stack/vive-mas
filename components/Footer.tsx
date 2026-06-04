@@ -7,6 +7,7 @@ const quickLinks = [
   ["Biblioteca gratis", "/biblioteca-gratis"],
   ["Buscar", "/buscar"],
   ["Favoritos", "/favoritos"],
+  ["Objetivos", "/objetivos/comer-mejor"],
   ["Plantillas", "/plantillas"],
   ["Blog", "/blog"],
   ["Programas", "/programas"],
@@ -57,7 +58,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-white">
+    <footer className="bg-ink pb-24 text-white md:pb-0">
       <div className="page-shell grid gap-12 py-16 sm:grid-cols-2 md:grid-cols-[1.5fr_0.8fr_0.8fr_0.9fr]">
         <div>
           <Link

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import { RecentlyViewedTracker } from "@/components/RecentlyViewedTracker";
+import { RelatedNextSteps } from "@/components/RelatedNextSteps";
 import { ResourceCard } from "@/components/ResourceCard";
 import { ResourceVisual } from "@/components/ResourceVisual";
 import { articles } from "@/data/articles";
@@ -167,7 +168,12 @@ export default async function ResourceDetailPage({ params }: PageProps) {
 
       {relatedArticles.length > 0 ? (
         <section className="pb-14">
-          <div className="page-shell">
+          <div className="page-shell grid gap-8">
+            <RelatedNextSteps
+              currentId={`resource-${resource.slug}`}
+              category={resource.category}
+              tags={resource.tags}
+            />
             <p className="text-sm font-black uppercase tracking-[0.12em] text-leaf-600">
               Para profundizar
             </p>

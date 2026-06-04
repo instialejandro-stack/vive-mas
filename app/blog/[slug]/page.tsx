@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/ArticleCard";
 import { Button } from "@/components/Button";
 import { RecentlyViewedTracker } from "@/components/RecentlyViewedTracker";
+import { RelatedNextSteps } from "@/components/RelatedNextSteps";
 import { articles } from "@/data/articles";
 import { resources } from "@/data/resources";
 
@@ -177,7 +178,12 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
 
       {relatedArticles.length > 0 ? (
         <section className="pb-16">
-          <div className="page-shell">
+          <div className="page-shell grid gap-8">
+            <RelatedNextSteps
+              currentId={`article-${article.slug}`}
+              category={article.category}
+              tags={article.tags}
+            />
             <p className="text-sm font-black uppercase tracking-[0.12em] text-leaf-600">
               Sigue leyendo
             </p>

@@ -30,6 +30,7 @@ const exploreGroups = [
     description: "Materiales, plantillas y futuras rutas guiadas.",
     links: [
       { href: "/empieza-aqui", label: "Empieza aquí" },
+      { href: "/objetivos/comer-mejor", label: "Objetivos" },
       { href: "/recursos", label: "Recursos" },
       { href: "/buscar", label: "Buscar" },
       { href: "/favoritos", label: "Favoritos" },
