@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { ResourceVisual } from "@/components/ResourceVisual";
 import { Resource } from "@/data/resources";
 
@@ -26,6 +27,20 @@ export function ResourceCard({ resource }: { resource: Resource }) {
           <span className={`rounded-full px-3 py-1 text-xs font-bold ${categoryClass}`}>
             {resource.category}
           </span>
+        </div>
+        <div className="mt-3">
+          <FavoriteButton
+            compact
+            item={{
+              id: `resource-${resource.slug}`,
+              title: resource.title,
+              description: resource.description,
+              href: resource.href,
+              type: "Recurso",
+              category: resource.category,
+              tags: resource.tags
+            }}
+          />
         </div>
 
         <h3 className="mt-4 text-lg font-bold text-ink">{resource.title}</h3>

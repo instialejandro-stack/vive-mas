@@ -31,6 +31,8 @@ const exploreGroups = [
     links: [
       { href: "/empieza-aqui", label: "Empieza aquí" },
       { href: "/recursos", label: "Recursos" },
+      { href: "/buscar", label: "Buscar" },
+      { href: "/favoritos", label: "Favoritos" },
       { href: "/plantillas", label: "Plantillas" },
       { href: "/programas", label: "Programas" },
       { href: "/premium", label: "Premium" },

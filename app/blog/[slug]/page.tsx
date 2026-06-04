@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/ArticleCard";
 import { Button } from "@/components/Button";
+import { RecentlyViewedTracker } from "@/components/RecentlyViewedTracker";
 import { articles } from "@/data/articles";
 import { resources } from "@/data/resources";
 
@@ -62,6 +63,17 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
 
   return (
     <main>
+      <RecentlyViewedTracker
+        item={{
+          id: `article-${article.slug}`,
+          title: article.title,
+          description: article.excerpt,
+          href: `/blog/${article.slug}`,
+          type: "Artículo",
+          category: article.category,
+          tags: article.tags
+        }}
+      />
       <article className="bg-gradient-to-br from-leaf-50 via-white to-cream py-16">
         <div className="page-shell">
           <Link

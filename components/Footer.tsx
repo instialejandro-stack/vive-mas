@@ -3,21 +3,21 @@ import Link from "next/link";
 const quickLinks = [
   ["Inicio", "/"],
   ["Mi bienestar", "/mi-bienestar"],
-  ["Alimentación", "/alimentacion"],
-  ["Hábitos saludables", "/habitos-saludables"],
-  ["Entrenamiento", "/entrenamiento"],
   ["Herramientas gratis", "/herramientas-gratis"],
   ["Biblioteca gratis", "/biblioteca-gratis"],
+  ["Buscar", "/buscar"],
+  ["Favoritos", "/favoritos"],
   ["Plantillas", "/plantillas"],
   ["Blog", "/blog"],
-  ["Recursos gratis", "/recursos"],
-  ["Premium", "/premium"]
+  ["Programas", "/programas"],
+  ["Newsletter", "/newsletter"],
+  ["Contacto", "/contacto"]
 ] as const;
 
 const legalLinks = [
-  ["Política de privacidad", "#"],
-  ["Aviso legal", "#"],
-  ["Cookies", "#"]
+  ["Política de privacidad", "/privacidad"],
+  ["Aviso legal", "/aviso-legal"],
+  ["Cookies", "/cookies"]
 ] as const;
 
 function InstagramIcon() {
@@ -59,15 +59,14 @@ export function Footer() {
   return (
     <footer className="bg-ink text-white">
       <div className="page-shell grid gap-12 py-16 sm:grid-cols-2 md:grid-cols-[1.5fr_0.8fr_0.8fr_0.9fr]">
-        {/* Marca */}
         <div>
           <Link
             href="/"
             className="focus-ring inline-flex items-center gap-2.5 rounded-xl"
-            aria-label="Vive Más — Inicio"
+            aria-label="Vive Más - Inicio"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-leaf-500 text-sm font-black text-white">
-              🌿
+              VM
             </span>
             <p className="text-xl font-black tracking-tight">Vive Más</p>
           </Link>
@@ -89,7 +88,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Navegar */}
         <div>
           <h2 className="text-xs font-bold uppercase tracking-[0.15em] text-white/35">
             Navegar
@@ -108,7 +106,6 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Legal */}
         <div>
           <h2 className="text-xs font-bold uppercase tracking-[0.15em] text-white/35">
             Legal
@@ -127,7 +124,6 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Newsletter */}
         <div>
           <h2 className="text-xs font-bold uppercase tracking-[0.15em] text-white/35">
             Newsletter
@@ -158,11 +154,10 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-white/8 px-6 py-5">
         <div className="page-shell flex flex-col items-center justify-between gap-2 text-center text-xs text-white/35 sm:flex-row">
           <p>© 2026 Vive Más. Todos los derechos reservados.</p>
-          <p>Hecho con 💚 para tu bienestar</p>
+          <p>Hecho para ayudarte a avanzar paso a paso.</p>
         </div>
       </div>
     </footer>

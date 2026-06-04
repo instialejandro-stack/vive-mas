@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { Article } from "@/data/articles";
 
 const categoryStyles: Record<string, { badge: string; panel: string; accent: string }> = {
@@ -47,6 +48,20 @@ export function ArticleCard({ article }: { article: Article }) {
               year: "numeric"
             })}
           </time>
+        </div>
+        <div className="mt-4">
+          <FavoriteButton
+            compact
+            item={{
+              id: `article-${article.slug}`,
+              title: article.title,
+              description: article.excerpt,
+              href: `/blog/${article.slug}`,
+              type: "Artículo",
+              category: article.category,
+              tags: article.tags
+            }}
+          />
         </div>
 
         <h3 className="mt-4 text-xl font-black text-ink">{article.title}</h3>

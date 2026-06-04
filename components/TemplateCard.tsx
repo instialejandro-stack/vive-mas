@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { Template } from "@/data/templates";
 
 export function TemplateCard({ template }: { template: Template }) {
@@ -15,6 +16,20 @@ export function TemplateCard({ template }: { template: Template }) {
         }`}>
           {template.status}
         </span>
+      </div>
+      <div className="mt-3">
+        <FavoriteButton
+          compact
+          item={{
+            id: `template-${template.slug}`,
+            title: template.title,
+            description: template.description,
+            href: `/plantillas/${template.slug}`,
+            type: "Plantilla",
+            category: template.category,
+            tags: template.includes.map((item) => item.toLowerCase())
+          }}
+        />
       </div>
       <h3 className="mt-5 text-xl font-bold text-ink">{template.title}</h3>
       <p className="mt-3 leading-7 text-leaf-900/65">{template.description}</p>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/Button";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { FreeTool } from "@/data/freeTools";
 
 export function FreeToolCard({ tool }: { tool: FreeTool }) {
@@ -20,6 +21,18 @@ export function FreeToolCard({ tool }: { tool: FreeTool }) {
       </div>
 
       <div className="flex flex-1 flex-col p-3">
+        <FavoriteButton
+          compact
+          item={{
+            id: `tool-${tool.id}`,
+            title: tool.title,
+            description: tool.description,
+            href: tool.href,
+            type: "Herramienta",
+            category: tool.category,
+            tags: [tool.category.toLowerCase()]
+          }}
+        />
         <h3 className="mt-2 text-xl font-bold text-ink">{tool.title}</h3>
         <p className="mt-3 flex-1 leading-7 text-leaf-900/65">{tool.description}</p>
         <Button href={tool.href} variant="secondary" className="mt-6">

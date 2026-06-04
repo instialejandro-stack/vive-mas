@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
+import { RecentlyViewedTracker } from "@/components/RecentlyViewedTracker";
 import { templates } from "@/data/templates";
 
 type TemplatePageProps = {
@@ -40,6 +41,17 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
 
   return (
     <article className="py-20">
+      <RecentlyViewedTracker
+        item={{
+          id: `template-${template.slug}`,
+          title: template.title,
+          description: template.description,
+          href: `/plantillas/${template.slug}`,
+          type: "Plantilla",
+          category: template.category,
+          tags: template.includes.map((item) => item.toLowerCase())
+        }}
+      />
       <div className="page-shell">
         <Link
           href="/plantillas"

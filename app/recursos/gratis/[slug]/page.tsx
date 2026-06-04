@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
+import { RecentlyViewedTracker } from "@/components/RecentlyViewedTracker";
 import { ResourceCard } from "@/components/ResourceCard";
 import { ResourceVisual } from "@/components/ResourceVisual";
 import { articles } from "@/data/articles";
@@ -59,6 +60,17 @@ export default async function ResourceDetailPage({ params }: PageProps) {
 
   return (
     <main>
+      <RecentlyViewedTracker
+        item={{
+          id: `resource-${resource.slug}`,
+          title: resource.title,
+          description: resource.description,
+          href: resource.href,
+          type: "Recurso",
+          category: resource.category,
+          tags: resource.tags
+        }}
+      />
       <section className="bg-gradient-to-br from-leaf-50 via-white to-cream py-14">
         <div className="page-shell">
           <Link
