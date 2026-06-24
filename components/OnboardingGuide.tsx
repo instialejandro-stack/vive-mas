@@ -5,9 +5,9 @@ import { useMemo, useState } from "react";
 import { objectives } from "@/data/objectives";
 
 const timeOptions = [
-  { value: "5", label: "5 min/dia" },
-  { value: "15", label: "15 min/dia" },
-  { value: "30", label: "30 min/dia" }
+  { value: "5", label: "5 min/día" },
+  { value: "15", label: "15 min/día" },
+  { value: "30", label: "30 min/día" }
 ];
 
 const levelOptions = [
@@ -28,17 +28,17 @@ export function OnboardingGuide() {
 
   const tone =
     level === "inicio"
-      ? "Empieza con una sola accion pequena. Lo importante es que sea facil repetirla manana."
+      ? "Empieza con una sola acción pequeña. Lo importante es que sea fácil repetirla mañana."
       : level === "retomar"
-        ? "Recupera ritmo sin exigirte perfeccion. Elige una accion conocida y hazla manejable."
+        ? "Recupera ritmo sin exigirte perfección. Elige una acción conocida y hazla manejable."
         : "Mantén el foco en repetir, revisar y ajustar. Tu siguiente paso debe ser claro y medible.";
 
   const timeAdvice =
     time === "5"
-      ? "Con 5 minutos, prioriza check-in, agua, una pausa activa o preparar una decision."
+      ? "Con 5 minutos, prioriza check-in, agua, una pausa activa o preparar una decisión."
       : time === "15"
-        ? "Con 15 minutos, puedes combinar una accion practica con una herramienta de seguimiento."
-        : "Con 30 minutos, puedes planificar, entrenar suave o trabajar un recurso con mas calma.";
+        ? "Con 15 minutos, puedes combinar una acción práctica con una herramienta de seguimiento."
+        : "Con 30 minutos, puedes planificar, entrenar suave o trabajar un recurso con más calma.";
 
   return (
     <section className="rounded-[2rem] border border-leaf-100 bg-white p-5 shadow-soft md:p-7">
@@ -61,6 +61,7 @@ export function OnboardingGuide() {
                     key={objective.slug}
                     type="button"
                     onClick={() => setObjectiveSlug(objective.slug)}
+                    aria-pressed={objectiveSlug === objective.slug}
                     className={`focus-ring rounded-2xl border px-4 py-3 text-left text-sm font-bold transition hover:-translate-y-0.5 ${
                       objectiveSlug === objective.slug
                         ? "border-leaf-500 bg-leaf-50 text-leaf-800"
@@ -81,6 +82,7 @@ export function OnboardingGuide() {
                     key={option.value}
                     type="button"
                     onClick={() => setTime(option.value)}
+                    aria-pressed={time === option.value}
                     className={`focus-ring rounded-full px-4 py-2 text-sm font-bold transition ${
                       time === option.value
                         ? "bg-leaf-600 text-white"

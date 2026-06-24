@@ -41,7 +41,7 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
   const isAvailable = template.status === "Gratis";
 
   return (
-    <article className="py-20">
+    <main className="py-20">
       <RecentlyViewedTracker
         item={{
           id: `template-${template.slug}`,
@@ -103,7 +103,7 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
               </Button>
               {template.relatedToolHref ? (
                 <Button href={template.relatedToolHref} variant="secondary">
-                  Usar version interactiva
+                  Usar versión interactiva
                 </Button>
               ) : null}
             </div>
@@ -118,6 +118,6 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
           />
         </div>
       </div>
-    </article>
+    </main>
   );
 }

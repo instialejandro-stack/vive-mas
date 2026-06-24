@@ -206,6 +206,7 @@ export function WeeklyMealPlanner() {
               key={day}
               type="button"
               onClick={() => setActiveDay(day)}
+              aria-pressed={activeDay === day}
               className={`focus-ring shrink-0 rounded-full px-4 py-2 text-sm font-bold transition hover:-translate-y-0.5 ${
                 activeDay === day
                   ? "bg-leaf-600 text-white shadow-card"

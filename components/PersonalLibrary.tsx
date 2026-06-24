@@ -53,7 +53,7 @@ export function PersonalLibrary() {
             <p className="text-sm font-black uppercase tracking-[0.12em] text-leaf-600">Favoritos</p>
             <h2 className="mt-2 text-2xl font-black text-ink">Guardado para volver rápido</h2>
           </div>
-          <span className="rounded-full bg-mist px-3 py-1 text-sm font-bold text-leaf-900/60">
+          <span className="rounded-full bg-mist px-3 py-1 text-sm font-bold text-leaf-900/60" aria-live="polite">
             {favorites.length}
           </span>
         </div>
@@ -121,6 +121,7 @@ function ItemList({
               <button
                 type="button"
                 onClick={() => onRemove(item.id)}
+                aria-label={`Quitar ${item.title} de favoritos`}
                 className="focus-ring shrink-0 rounded-full bg-white px-3 py-1 text-xs font-bold text-leaf-900/55 transition hover:bg-leaf-50"
               >
                 Quitar

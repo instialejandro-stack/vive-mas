@@ -181,7 +181,7 @@ export function SevenDayChallenge() {
             />
           </label>
           <label className="rounded-2xl bg-mist p-5">
-            <span className="text-sm font-black text-ink">Reflexion del reto</span>
+            <span className="text-sm font-black text-ink">Reflexión del reto</span>
             <textarea
               value={reflection}
               onChange={(event) => setReflection(event.target.value)}
@@ -207,6 +207,7 @@ export function SevenDayChallenge() {
             key={day.title}
             type="button"
             onClick={() => toggleDay(index)}
+            aria-pressed={Boolean(done[index])}
             className={`focus-ring interactive-lift flex items-start gap-4 rounded-2xl border p-4 text-left transition ${
               done[index]
                 ? "border-leaf-300 bg-leaf-50"

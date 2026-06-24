@@ -59,7 +59,7 @@ export function WaterCalculator() {
                   </p>
                 </div>
               </div>
-              <p className="mt-4 text-sm font-bold text-ink">{result} ml al día</p>
+              <p className="mt-4 text-sm font-bold text-ink" aria-live="polite">{result} ml al día</p>
               <p className="mt-1 text-sm text-leaf-900/60">aprox. {glasses} vasos de 250 ml</p>
             </div>
 
@@ -91,6 +91,7 @@ export function WaterCalculator() {
                       key={option.label}
                       type="button"
                       onClick={() => setActivity(option.value)}
+                      aria-pressed={activity === option.value}
                       className={`focus-ring interactive-lift rounded-2xl border px-4 py-3 text-left transition ${
                         activity === option.value
                           ? "border-leaf-600 bg-leaf-600 text-white shadow-card"

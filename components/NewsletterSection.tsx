@@ -42,7 +42,7 @@ export function NewsletterSection() {
             Sin spam. Solo contenido útil. Gratis para siempre.
           </p>
 
-          <form className="mt-7 space-y-4" noValidate>
+          <form className="mt-7 space-y-4" noValidate aria-describedby="newsletter-form-note">
             <div>
               <label className="block text-sm font-semibold text-ink" htmlFor="newsletter-name">
                 Nombre
@@ -69,13 +69,13 @@ export function NewsletterSection() {
                 placeholder="tu@email.com"
               />
             </div>
-            <Button type="submit" className="w-full" size="lg">
+            <Button type="button" className="w-full" size="lg">
               Unirme gratis
             </Button>
           </form>
 
-          <p className="mt-4 text-center text-xs text-leaf-900/40">
-            Formulario preparado para conectar con tu herramienta de email favorita.
+          <p id="newsletter-form-note" className="mt-4 text-center text-xs text-leaf-900/50">
+            Formulario visual preparado para activar una newsletter real en una fase posterior.
           </p>
         </div>
       </div>

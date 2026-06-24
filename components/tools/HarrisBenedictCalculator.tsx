@@ -42,12 +42,12 @@ export function HarrisBenedictCalculator() {
           </span>
           <h2 className="mt-4 text-2xl font-bold text-ink">Calculadora Harris-Benedict</h2>
           <p className="mt-3 leading-7 text-leaf-900/65">
-            Estima tu metabolismo basal y una referencia de mantenimiento segun
-            actividad. Es una orientacion general, no una pauta medica ni nutricional.
+            Estima tu metabolismo basal y una referencia de mantenimiento según
+            actividad. Es una orientación general, no una pauta médica ni nutricional.
           </p>
           <div className="mt-6 rounded-3xl bg-gradient-to-br from-coral-light to-cream p-5">
             <p className="text-sm font-bold text-coral-dark">Resultado principal</p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="mt-4 grid gap-3 sm:grid-cols-2" aria-live="polite">
               <div className="rounded-2xl bg-white p-4 shadow-sm">
                 <p className="text-xs font-black uppercase tracking-[0.12em] text-leaf-900/45">Basal</p>
                 <p className="mt-2 text-3xl font-black text-leaf-600">{result.bmr}</p>
@@ -137,13 +137,18 @@ export function HarrisBenedictCalculator() {
               <div
                 className="h-full rounded-full bg-leaf-600 transition-all duration-500"
                 style={{ width: `${meter}%` }}
+                role="progressbar"
+                aria-label="Escala orientativa de calorías de mantenimiento"
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={meter}
               />
             </div>
           </div>
 
           <div className="mt-4 grid gap-3 sm:grid-cols-3">
             {[
-              ["Suave deficit", lightDeficit],
+              ["Suave déficit", lightDeficit],
               ["Mantener", result.maintenance],
               ["Subida suave", gentleSurplus]
             ].map(([label, value]) => (

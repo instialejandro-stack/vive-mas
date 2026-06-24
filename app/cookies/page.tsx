@@ -24,7 +24,7 @@ export default function CookiesPage() {
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-leaf-900/65">
             En esta versión, Vive Más no implementa cookies publicitarias, pagos,
-            sistemas de usuarios ni analitica externa conectada desde la aplicacion.
+            sistemas de usuarios ni analítica externa conectada desde la aplicación.
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export default function CookiesPage() {
             <h2 className="text-2xl font-black text-ink">Almacenamiento local</h2>
             <p className="mt-3 leading-7 text-leaf-900/65">
               Para que algunas herramientas sean utiles sin registro, la web puede guardar
-              informacion en el navegador mediante localStorage. Esto permite mantener tu
+              información en el navegador mediante localStorage. Esto permite mantener tu
               progreso aunque cierres la pagina.
             </p>
             <div className="mt-5 grid gap-3">
@@ -48,7 +48,7 @@ export default function CookiesPage() {
           <section className="rounded-[2rem] border border-leaf-100 bg-white p-6 shadow-soft">
             <h2 className="text-2xl font-black text-ink">Gestion</h2>
             <p className="mt-3 leading-7 text-leaf-900/65">
-              Puedes borrar esta informacion desde la configuracion del navegador,
+              Puedes borrar esta información desde la configuración del navegador,
               eliminando los datos del sitio. Si en el futuro se anaden servicios externos,
               newsletter real o analítica, esta página deberá actualizarse antes de activarlos.
             </p>

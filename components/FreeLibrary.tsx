@@ -87,6 +87,7 @@ export function FreeLibrary({ resources }: { resources: Resource[] }) {
                     key={item}
                     type="button"
                     onClick={() => setCategory(item)}
+                    aria-pressed={active}
                     className={`focus-ring border px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 ${
                       active
                         ? "border-leaf-700 bg-leaf-700 text-white shadow-soft"
@@ -118,7 +119,7 @@ export function FreeLibrary({ resources }: { resources: Resource[] }) {
               />
             </label>
             <div className="mt-3 flex items-center justify-between gap-3">
-              <p className="text-sm font-semibold text-leaf-900/60">
+              <p className="text-sm font-semibold text-leaf-900/60" aria-live="polite">
                 {filtered.length} recurso{filtered.length === 1 ? "" : "s"} encontrado{filtered.length === 1 ? "" : "s"}
               </p>
               {query || category !== "Todas" ? (

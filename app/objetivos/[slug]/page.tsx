@@ -42,7 +42,7 @@ export default async function ObjectivePage({ params }: ObjectivePageProps) {
             href="/empieza-aqui"
             className="focus-ring inline-flex rounded-full bg-white px-4 py-2 text-sm font-bold text-leaf-700 transition hover:bg-leaf-50"
           >
-            Volver a Empieza aqui
+            Volver a Empieza aquí
           </Link>
           <div className="mt-8 max-w-4xl">
             <p className="eyebrow">Objetivo guiado</p>
@@ -71,7 +71,7 @@ export default async function ObjectivePage({ params }: ObjectivePageProps) {
             <div className="mt-6 grid gap-3">
               <Button href="/mi-bienestar">Abrir Mi bienestar</Button>
               <Button href="/buscar" variant="secondary">
-                Buscar mas contenido
+                Buscar más contenido
               </Button>
             </div>
           </aside>

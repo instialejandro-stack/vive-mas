@@ -77,6 +77,7 @@ export default function ContactoPage() {
           <form
             className="rounded-3xl border border-leaf-100 bg-white p-8 shadow-soft"
             noValidate
+            aria-describedby="contact-form-note"
           >
             <h2 className="text-xl font-bold text-ink">Envíanos un mensaje</h2>
             <p className="mt-1 text-sm text-leaf-900/55">
@@ -126,12 +127,12 @@ export default function ContactoPage() {
               </div>
             </div>
 
-            <Button type="submit" className="mt-6 w-full" size="lg">
+            <Button type="button" className="mt-6 w-full" size="lg">
               Enviar mensaje
             </Button>
 
-            <p className="mt-4 text-center text-xs text-leaf-900/40">
-              Formulario preparado para conectar con tu herramienta de email.
+            <p id="contact-form-note" className="mt-4 text-center text-xs text-leaf-900/50">
+              Formulario visual preparado para conectar con una herramienta de email en una fase posterior.
             </p>
           </form>
         </div>

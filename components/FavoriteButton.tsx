@@ -48,8 +48,20 @@ export function FavoriteButton({
           : "border-leaf-200 bg-white text-leaf-700 hover:bg-leaf-50"
       } ${compact ? "px-2.5 py-1.5 text-xs" : ""}`}
       aria-pressed={active}
+      aria-label={active ? `Quitar ${item.title} de favoritos` : `Guardar ${item.title} en favoritos`}
     >
-      <span aria-hidden="true">{active ? "★" : "☆"}</span>
+      <svg
+        className="h-4 w-4"
+        viewBox="0 0 24 24"
+        fill={active ? "currentColor" : "none"}
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.8 1-6.1-4.4-4.3 6.1-.9L12 3Z" />
+      </svg>
       {active ? "Guardado" : "Guardar"}
     </button>
   );

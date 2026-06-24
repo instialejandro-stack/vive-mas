@@ -7,7 +7,7 @@ const groups = [
   {
     id: "verduras",
     label: "Verduras",
-    items: ["Espinacas", "Brocoli", "Zanahoria", "Pimiento", "Calabacin"]
+    items: ["Espinacas", "Brócoli", "Zanahoria", "Pimiento", "Calabacín"]
   },
   {
     id: "proteinas",
@@ -26,8 +26,8 @@ const groups = [
   },
   {
     id: "extras",
-    label: "Extras utiles",
-    items: ["Yogur natural", "Fruta de temporada", "Limon", "Especias", "Infusiones"]
+    label: "Extras útiles",
+    items: ["Yogur natural", "Fruta de temporada", "Limón", "Especias", "Infusiones"]
   }
 ];
 
@@ -75,7 +75,7 @@ export function GroceryListGenerator() {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-mist p-5">
+        <div className="rounded-2xl bg-mist p-5" aria-live="polite">
           <h3 className="text-lg font-bold text-ink">Lista sugerida</h3>
           {list.length > 0 ? (
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">

@@ -48,6 +48,7 @@ export function GlobalSearch({ items }: { items: ContentItem[] }) {
                     key={item}
                     type="button"
                     onClick={() => setType(item)}
+                    aria-pressed={active}
                     className={`focus-ring border px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 ${
                       active
                         ? "border-leaf-700 bg-leaf-700 text-white shadow-soft"
@@ -73,7 +74,7 @@ export function GlobalSearch({ items }: { items: ContentItem[] }) {
             />
           </label>
         </div>
-        <p className="mt-4 text-sm font-semibold text-leaf-900/60">
+        <p className="mt-4 text-sm font-semibold text-leaf-900/60" aria-live="polite">
           {filtered.length} resultado{filtered.length === 1 ? "" : "s"} encontrado{filtered.length === 1 ? "" : "s"}
         </p>
       </section>

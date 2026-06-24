@@ -58,6 +58,7 @@ export function TemplateLibrary({ templates }: { templates: Template[] }) {
                     key={item}
                     type="button"
                     onClick={() => setCategory(item)}
+                    aria-pressed={active}
                     className={`focus-ring border px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 ${
                       active
                         ? "border-leaf-700 bg-leaf-700 text-white shadow-soft"
@@ -89,7 +90,7 @@ export function TemplateLibrary({ templates }: { templates: Template[] }) {
               />
             </label>
             <div className="mt-3 flex items-center justify-between gap-3">
-              <p className="text-sm font-semibold text-leaf-900/60">
+              <p className="text-sm font-semibold text-leaf-900/60" aria-live="polite">
                 {filtered.length} plantilla{filtered.length === 1 ? "" : "s"} encontrada{filtered.length === 1 ? "" : "s"}
               </p>
               {query || category !== "Todas" ? (
@@ -111,6 +112,22 @@ export function TemplateLibrary({ templates }: { templates: Template[] }) {
           <TemplateCard key={template.id} template={template} />
         ))}
       </div>
+
+      {filtered.length === 0 ? (
+        <div className="rounded-2xl bg-mist p-8 text-center">
+          <p className="text-lg font-black text-ink">No hay plantillas con esos filtros.</p>
+          <p className="mt-2 text-sm text-leaf-900/60">
+            Prueba con otra categoría o busca por una palabra más general.
+          </p>
+          <button
+            type="button"
+            onClick={clearFilters}
+            className="focus-ring mt-5 rounded-full bg-leaf-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-leaf-700"
+          >
+            Ver todas
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

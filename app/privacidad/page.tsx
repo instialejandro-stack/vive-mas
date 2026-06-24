@@ -35,7 +35,7 @@ export default function PrivacyPage() {
               <li>No vendemos datos personales.</li>
               <li>No conectamos herramientas de pago.</li>
               <li>No usamos una base de datos de usuarios.</li>
-              <li>Algunas funciones guardan informacion solo en tu navegador.</li>
+              <li>Algunas funciones guardan información solo en tu navegador.</li>
             </ul>
           </aside>
 

@@ -40,14 +40,14 @@ export function RelatedNextSteps({
     <section className="rounded-[2rem] border border-leaf-100 bg-white p-6 shadow-card">
       <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
         <div>
-          <p className="eyebrow">Continua</p>
+          <p className="eyebrow">Continúa</p>
           <h2 className="mt-2 text-2xl font-black text-ink">{title}</h2>
         </div>
         <Link
           href="/buscar"
           className="focus-ring w-fit rounded-full bg-mist px-4 py-2 text-sm font-bold text-leaf-700 transition hover:bg-leaf-50"
         >
-          Buscar mas
+          Buscar más
         </Link>
       </div>
 

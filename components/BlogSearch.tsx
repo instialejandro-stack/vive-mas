@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArticleCard } from "@/components/ArticleCard";
 import { Article } from "@/data/articles";
@@ -58,6 +59,12 @@ export function BlogSearch({ articles }: { articles: Article[] }) {
               <span className="rounded-full bg-leaf-50 px-3 py-1 text-leaf-700">{article.category}</span>
               <span className="rounded-full bg-mist px-3 py-1 text-leaf-900/55">{article.readTime}</span>
             </div>
+            <Link
+              href={`/blog/${article.slug}`}
+              className="focus-ring mt-5 inline-flex w-fit rounded-full bg-leaf-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-leaf-700"
+            >
+              Leer artículo
+            </Link>
           </article>
         ))}
       </section>
@@ -80,6 +87,7 @@ export function BlogSearch({ articles }: { articles: Article[] }) {
                     key={item}
                     type="button"
                     onClick={() => setCategory(item)}
+                    aria-pressed={active}
                     className={`focus-ring border px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 ${
                       active
                         ? "border-leaf-700 bg-leaf-700 text-white shadow-soft"
@@ -111,7 +119,7 @@ export function BlogSearch({ articles }: { articles: Article[] }) {
               />
             </label>
             <div className="mt-3 flex items-center justify-between gap-3">
-              <p className="text-sm font-semibold text-leaf-900/60">
+              <p className="text-sm font-semibold text-leaf-900/60" aria-live="polite">
                 {filtered.length} artículo{filtered.length === 1 ? "" : "s"} encontrado{filtered.length === 1 ? "" : "s"}
               </p>
               {query || category !== "Todas" ? (

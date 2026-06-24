@@ -19,7 +19,8 @@ const navItems = [
   },
   {
     href: "/herramientas-gratis",
-    label: "Tools",
+    label: "Herram.",
+    ariaLabel: "Herramientas gratis",
     icon: <path d="M14.7 6.3a4 4 0 0 0-5 5L3 18v3h3l6.7-6.7a4 4 0 0 0 5-5l-2.8 2.8-2-2 2.8-2.8Z" />
   },
   {
@@ -39,7 +40,7 @@ export function MobileBottomNav() {
 
   return (
     <nav
-      aria-label="Navegacion movil rapida"
+      aria-label="Navegación móvil rápida"
       className="fixed inset-x-0 bottom-0 z-50 border-t border-leaf-100 bg-white/95 px-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-12px_30px_rgba(21,87,62,0.12)] backdrop-blur md:hidden"
     >
       <div className="grid grid-cols-5 gap-1">
@@ -50,6 +51,7 @@ export function MobileBottomNav() {
             <Link
               key={item.href}
               href={item.href}
+              aria-label={"ariaLabel" in item ? item.ariaLabel : item.label}
               aria-current={active ? "page" : undefined}
               className={cn(
                 "focus-ring flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl px-1 text-[0.68rem] font-black transition",

@@ -66,7 +66,7 @@ export function WellbeingTracker() {
           </p>
           <div className="mt-6 rounded-2xl bg-mist p-5 text-center">
             <p className="text-sm font-semibold text-leaf-900/60">Promedio del día</p>
-            <p className="mt-2 text-4xl font-black text-leaf-600">{average}/5</p>
+            <p className="mt-2 text-4xl font-black text-leaf-600" aria-live="polite">{average}/5</p>
           </div>
         </div>
 
